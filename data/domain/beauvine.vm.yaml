@@ -1,5 +1,5 @@
 ---
-profile::pasture::app::default_message: "Welcome to Beauvine!"
+profile::pasture::app::default_message: "Hello control repository!"
 profile::pasture::app::default_character: "sheep"
 profile::pasture::app::port: 80
 profile::pasture::app::pasture_config_file: "/etc/pasture_config.yaml"
