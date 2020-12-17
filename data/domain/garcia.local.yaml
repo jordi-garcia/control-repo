@@ -1,0 +1,7 @@
+---
+profile::pasture::app::default_message: "Welcome to Auroch!"
+profile::pasture::app::default_character: "sheep"
+profile::pasture::app::port: 80
+profile::pasture::app::pasture_config_file: "/etc/pasture_config.yaml"
+profile::pasture::app::sinatra_server: "thin"
+profile::pasture::app::db: "postgres://pasture:m00m00@agentdev3db2.garcia.local/pasture"

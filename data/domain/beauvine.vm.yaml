@@ -1,0 +1,15 @@
+---
+profile::pasture::app::default_message: "Welcome to Beauvine!"
+profile::pasture::app::default_character: "sheep"
+profile::pasture::app::port: 80
+profile::pasture::app::pasture_config_file: "/etc/pasture_config.yaml"
+profile::pasture::app::sinatra_server: "webrick"
+profile::pasture::app::db: "none"
+profile::base::dev_users::users:
+  - title: 'bessie'
+    comment: 'Bessie Johnson'
+    pub_key: 'AAAAB3NzaC1yc2EAAAADAQABAAABAQC3OFoBYBkjGH9OxCX7pgDfSdNz9owYXhWzdYy1msVUPTE8yylTb2LXuU8U0d+hlBdqO0RFVzd0fYoy8mfFsW7L7GT+zIT86+8HQ3xYW6ipUan4LiAFqvy+XzQ5DLHpQriPoravwooGTsvRjYsjY8oy/GaZQsLtdqw6YwXhCWBXNSrNwYi9wpOK1GHm00WCs3sCcWGIVAJNLtT+9Pt2l7CN1m/YvtNOxXodW10iQBwWDO0flR5TXz6k5sU3lxs8InD/skODEGA2qSe//Zn5tWR/F2I6FR46eoxRMjNERBOYI8rLyv2vh8M94904zv3ubUo8KSUs4X6PyF/NYq9zuQ+F'
+  - title: 'gertie'
+    comment: 'Gertie Philips'
+    pub_key: 'AAAAB3NzaC1yc2EAAAADAQABAAABAQC3OFoBYBkjGH9OxCX7pgDfSdNz9owYXhWzdYy1msVUPTE8yylTb2LXuU8U0d+hlBdqO0RFVzd0fYoy8mfFsW7L7GT+zIT86+8HQ3xYW6ipUan4LiAFqvy+XzQ5DLHpQriPoravwooGTsvRjYsjY8oy/GaZQsLtdqw6YwXhCWBXNSrNwYi9wpOK1GHm00WCs3sCcWGIVAJNLtT+9Pt2l7CN1m/YvtNOxXodW10iQBwWDO0flR5TXz6k5sU3lxs8InD/skODEGA2qSe//Zn5tWR/F2I6FR46eoxRMjNERBOYI8rLyv2vh8M94904zv3ubUo8KSUs4X6PyF/NYq9zuQ+F'
+ 
