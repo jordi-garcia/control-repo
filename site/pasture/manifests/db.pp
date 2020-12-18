@@ -16,7 +16,7 @@ class pasture::db {
     type        =>  'host',
     database    =>  'pasture',
     user        =>  'pasture',
-    address     =>  '192.168.238.112/32',
+    address     =>  '192.168.1.148/32',
     auth_method =>  'password',
   }
 
