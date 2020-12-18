@@ -3,13 +3,9 @@
 # A description of what this class does
 #
 # @example
-#   include ntpd
-class ntpd {
-  package { 'ntp':
+#   include git
+class git {
+  package { 'git':
     ensure  => present,
   }
-  service { 'ntpd':
-    ensure => 'running',
-    enable => 'true',
-}
 }
