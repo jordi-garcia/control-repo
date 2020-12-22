@@ -30,11 +30,5 @@ node default {
   #   class { 'my_class': }
 }
 
-node 'agent.garcia.local' {
-  include role::pasture_app
-}
 
-node /^agentdev3/ {
-  include role::pasture_db
-}
 
