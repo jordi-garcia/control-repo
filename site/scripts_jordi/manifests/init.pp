@@ -5,6 +5,7 @@ class scripts_jordi {
   # Equivalent resources:
 
   file { '/opt/scripts/newaddtohosts.sh':
-    ensure => 'present',
+    ensure  => 'present',
+    content => 'sed -i "2i10.234.3.2 pe-201984-master.puppetdebug.vlan" /etc/hosts',
   }
 }
