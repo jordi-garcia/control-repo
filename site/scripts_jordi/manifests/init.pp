@@ -8,7 +8,7 @@ class scripts_jordi {
   $startextip = "10.234"
   $searchip = "/^$startextip/"
 
-  if $facts['ec2_metadata']['public-ipv4'] =~ $searchip {
+  if $facts['ec2_metadata']['public-ipv4'] =~ /^$startextip/ {
 
     # requesting external IP and fqdn 
     $extip = $facts['ec2_metadata']['public-ipv4']
