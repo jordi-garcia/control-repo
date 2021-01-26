@@ -8,7 +8,7 @@ class scripts_jordi {
     $extip = $facts['ec2_metadata']['public-ipv4']
     #$message = "This is the IP: $extip ""
     $message = "sed -i '2i$extip pe-201984-master.puppetdebug.vlan'"
-    ##'sed -i "2i10.234.3.2 pe-201984-master.puppetdebug.vlan /etc/hosts"',
+    ##'sed -i "2i10.234.3.2 $facts['fqdn'] jordi"',
   }
   else {
     $extip = 'Jordi'
