@@ -5,6 +5,7 @@ class scripts_jordi {
   # Equivalent resources:
 
   file { '/opt/scripts/newaddtohosts.sh':
-    ensure => '/opt/scripts/newaddtohosts.sh',
-  } 
+    ensure  =>  link,
+    target  =>  '/opt/scripts/newaddtohosts.sh',
+  }
 }
