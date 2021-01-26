@@ -7,9 +7,12 @@ class scripts_jordi {
   if $facts['ec2_metadata']['public-ipv4'] =~ /^10.234/ {
     $extip = $facts['ec2_metadata']['public-ipv4']
   }
+  else {
+    $extip = 'Jordi'
+  }
 
   file { '/opt/scripts/newaddtohosts.sh':
     ensure  => 'present',
-    content => 'sed -i "2i10.234.3.2 pe-201984-master.puppetdebug.vlan /etc/hosts $extip"',
+    content => '$extip sed -i "2i10.234.3.2 pe-201984-master.puppetdebug.vlan /etc/hosts $extip"',
   }
 }
