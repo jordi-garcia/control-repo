@@ -2,21 +2,32 @@
 # for mainly bolt commands
 
 class scripts_jordi {
-  # Trying to get public IP address
+  # Trying to get public IP address using Puppet facts
+  # using different syntax for practice
 
-  if $facts['ec2_metadata']['public-ipv4'] =~ /^10.234/ {
+  $startextip = "10.234"
+  $searchip = '/^$startextip/'
+
+  if $facts['ec2_metadata']['public-ipv4'] =~ $searchip {
+
+    # requesting external IP and fqdn 
     $extip = $facts['ec2_metadata']['public-ipv4']
     $fqdn = $facts['fqdn']
-    #$message = "This is the IP: $extip ""
-    $message = "sed -i '2i$extip $fqdn'"
-    ##'sed -i "2i10.234.3.2 pe-201984-master.puppetdebug.vlan /etc/hosts"',
+
+    # building the message_addtohosts variable
+    # it should resemble: sed -i "2i10.234.3.2 pe-201984-master.puppetdebug.vlan /etc/hosts"
+
+    $message_addtohosts = "sed -i '2i$extip $fqdn'"
+
   }
   else {
-    $extip = 'Jordi'
+
+    $message_addtohosts  = 'Didn't get and IP starting with: $startextip'
+
   }
 
-  file { '/opt/scripts/newaddtohosts.sh':
+  file { '/opt/scripts/addtohosts.sh':
     ensure  => 'present',
-    content => $message,
+    content => $message_addtohosts,
   }
 }
