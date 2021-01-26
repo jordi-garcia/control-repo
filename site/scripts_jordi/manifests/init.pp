@@ -6,9 +6,9 @@ class scripts_jordi {
   # using different syntax for practice
 
   $startextip = "10.234"
-  $searchip = "/^$startextip/"
+  $searchip = "\/\^$startextip\/"
 
-  if $facts['ec2_metadata']['public-ipv4'] =~ /^$startextip/ {
+  if $facts['ec2_metadata']['public-ipv4'] =~ $searchip  {
 
     # requesting external IP and fqdn 
     $extip = $facts['ec2_metadata']['public-ipv4']
@@ -22,7 +22,7 @@ class scripts_jordi {
   }
   else {
 
-    $message_addtohosts  = "Didn't get and IP starting with: $startextip"
+    $message_addtohosts  = "Didn't get and IP starting with: $searchip  $startextip"
 
   }
 
