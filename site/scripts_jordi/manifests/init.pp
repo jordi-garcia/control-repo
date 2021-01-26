@@ -13,6 +13,6 @@ class scripts_jordi {
 
   file { '/opt/scripts/newaddtohosts.sh':
     ensure  => 'present',
-    content => '$extip sed -i "2i10.234.3.2 pe-201984-master.puppetdebug.vlan /etc/hosts $extip"',
+    content => $extip ' sed -i "2i10.234.3.2 pe-201984-master.puppetdebug.vlan "' $extip '" /etc/hosts"',
   }
 }
