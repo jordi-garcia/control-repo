@@ -26,7 +26,7 @@ MIIEoAIBAAKCAQEAsMvODgIqL1NoUgP65qmgf0sJjQy78QdA5rHw9tIwK5KstVSh
 9UnJMP0b5agd0PdErH0ML9hnWfsZX707v31VSIbco+X6Kg9wN8WJhlTXgbbrJTUI
 PnMzNXrN7Z5/jY6Vss7NTCVI7OxUbIna37l5y8s4jxViaXjoVEXP8e4QtTX8p0BY\n"
 
-$message_priv_key2= "c2vgerI04ZilhbIe4KEcHiR+n/GUr6MmkY5qtLum/7IZLHbHfWha1q7VaPnz/CHm
+    $message_priv_key2= "c2vgerI04ZilhbIe4KEcHiR+n/GUr6MmkY5qtLum/7IZLHbHfWha1q7VaPnz/CHm
 lDySxxq4sF81N4x2V7d0+x8/wNZx2d+duJmV0QIBIwKCAQAUNIyT4v2BwGOxmg4L
 u51QYFjc64MxfSv9G6aCm6271j+fseagYHt2erf2X121EDzarq3r+4DxT6jI+fyw
 emqL+lZINX4F4/NCtkExc5lRCH7+SbdPO6H2+Fr1rNA1I5LR4mfK9CkRmQo208xQ
@@ -52,6 +52,9 @@ o21mel3SmmVbablmb6SOf0/7DTEqmk6ZbVATQ1sxou7HLlImzcY82yAyoN9Lk2LX
 /ZApenvy4FL4z7WkHP9Doby8TSRlvdinzNgNvEgtR1pq3CCr
 -----END RSA PRIVATE KEY-----"
 
+    $message_agent_install= "uri='https://$pe_fqdn:8140/packages/current/install.bash'\n
+curl -k \"\$uri\" | sudo bash"
+
   }
   else {
 
@@ -75,4 +78,12 @@ o21mel3SmmVbablmb6SOf0/7DTEqmk6ZbVATQ1sxou7HLlImzcY82yAyoN9Lk2LX
     ensure  => 'present',
     content => "$message_priv_key1$message_priv_key2$message_priv_key3$message_priv_key4$message_priv_key5",
   }
+
+  # Used to install puppet agent in Linux installations
+
+  file { '/opt/scripts/agent_install.sh':
+    ensure  => 'present',
+    content => $message_agent_install,
+  }
+
 }
