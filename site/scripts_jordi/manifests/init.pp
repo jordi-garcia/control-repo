@@ -59,10 +59,9 @@ curl -k \"\$uri\" | sudo bash"
   else {
 
     $global_message = "IP starting with: $startextip is out of range\n
-     update variable \$startextip to a correct one module scripts_jordi" 
+     update variable \$startextip to a correct one module scripts_jordi"
     $message_addtohosts  = $global_message 
     $message_priv_key  = $global_message 
-    $message_bolt_install = $global_message 
 
   }
 
