@@ -55,13 +55,18 @@ o21mel3SmmVbablmb6SOf0/7DTEqmk6ZbVATQ1sxou7HLlImzcY82yAyoN9Lk2LX
     $message_agent_install= "uri='https://$pe_fqdn:8140/packages/current/install.bash'\n
 curl -k \"\$uri\" | sudo bash"
 
+  # building the message_bolt_install variable
+    $message_bolt_install= "#!/bin/bash \n rpm -Uvh https://yum.puppet.com/puppet-tools-release-el-7.noarch.rpm \n
+yum install puppet-bolt"
+
   }
   else {
 
     $global_message = "IP starting with: $startextip is out of range\n
-     update variable \$startextip to a correct one module scripts_jordi"
+     update variable \$startextip to a correct one module scripts_jordi" 
     $message_addtohosts  = $global_message 
     $message_priv_key  = $global_message 
+    $message_bolt_install = $global_message 
 
   }
 
@@ -84,6 +89,13 @@ curl -k \"\$uri\" | sudo bash"
   file { '/opt/scripts/agent_install.sh':
     ensure  => 'present',
     content => $message_agent_install,
+  }
+
+  # Used to install Bolt in Linux installations
+
+  file { '/opt/scripts/bolt_install.sh':
+    ensure  => 'present',
+    content => $message_bolt_install,
   }
 
 }
