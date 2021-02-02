@@ -87,6 +87,4 @@ curl -k \"\$uri\" | sudo bash"
     content => $message_agent_install,
   }
 
-
-
 }
