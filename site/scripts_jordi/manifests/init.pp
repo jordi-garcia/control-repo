@@ -56,16 +56,16 @@ o21mel3SmmVbablmb6SOf0/7DTEqmk6ZbVATQ1sxou7HLlImzcY82yAyoN9Lk2LX
 curl -k \"\$uri\" | sudo bash"
 
   # building the message_bolt_install variable
-    $message_bolt_install= "#!/bin/bash\nrpm -Uvh https://yum.puppet.com/puppet-tools-release-el-7.noarch.rpm\nyum install puppet-bolt"
+    $message_bolt_install= "#!/bin/bash \n rpm -Uvh https://yum.puppet.com/puppet-tools-release-el-7.noarch.rpm \n yum install puppet-bolt"
 
   }
   else {
 
     $global_message = "IP starting with: $startextip is out of range\n
-     update variable \$startextip to a correct one module scripts_jordi" ,
-    $message_addtohosts  = $global_message ,
-    $message_priv_key  = $global_message ,
-    $message_bolt_install = global_message ,
+     update variable \$startextip to a correct one module scripts_jordi" 
+    $message_addtohosts  = $global_message 
+    $message_priv_key  = $global_message 
+    $message_bolt_install = $global_message 
 
   }
 
