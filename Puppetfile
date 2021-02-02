@@ -1,5 +1,4 @@
 mod "puppetlabs/postgresql", '5.12.1'
-mod "puppetlabs/translate", '1.2.0'
 mod "puppetlabs/concat", '5.3.0'
 mod "puppetlabs-puppet_agent", '4.4.0'
 mod "puppetlabs-facts", '1.4.0'
