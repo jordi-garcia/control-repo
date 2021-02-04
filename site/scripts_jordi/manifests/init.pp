@@ -57,7 +57,7 @@ curl -k \"\$uri\" | sudo bash"
 
   # building the message_bolt_install variable
     $message_bolt_install= "#!/bin/bash \n rpm -Uvh https://yum.puppet.com/puppet-tools-release-el-7.noarch.rpm \n
-yum install y puppet-bolt"
+yum install -y puppet-bolt"
 
   }
   else {
