@@ -59,6 +59,9 @@ curl -k \"\$uri\" | sudo bash"
     $message_bolt_install= "#!/bin/bash \n rpm -Uvh https://yum.puppet.com/puppet-tools-release-el-7.noarch.rpm \n
 yum install -y puppet-bolt"
 
+  # building the message_puppet_agent_run variable
+    $message_puppet_agent_run= "sudo puppet agent -t"
+
   }
   else {
 
@@ -67,7 +70,14 @@ yum install -y puppet-bolt"
     $message_addtohosts  = $global_message 
     $message_priv_key  = $global_message 
     $message_bolt_install = $global_message 
+    $message_puppet_agent_run = $global_message 
 
+  }
+
+  # Create the scripts directory first
+
+  file { '/opt/scripts/':
+    ensure  => 'directory',
   }
 
   # Used to add Primary server IP to agents hosts file
@@ -75,6 +85,7 @@ yum install -y puppet-bolt"
   file { '/opt/scripts/addtohosts.sh':
     ensure  => 'present',
     content => $message_addtohosts,
+    require => File['/opt/scripts'],
   }
 
   # Private Key Used to remote onto agents via centos credentials
@@ -82,6 +93,7 @@ yum install -y puppet-bolt"
   file { '/root/.ssh/id_rsa-acceptance':
     ensure  => 'present',
     content => "$message_priv_key1$message_priv_key2$message_priv_key3$message_priv_key4$message_priv_key5",
+    require => File['/opt/scripts'],
   }
 
   # Used to install puppet agent in Linux installations
@@ -89,6 +101,7 @@ yum install -y puppet-bolt"
   file { '/opt/scripts/agent_install.sh':
     ensure  => 'present',
     content => $message_agent_install,
+    require => File['/opt/scripts'],
   }
 
   # Used to install Bolt in Linux installations
@@ -96,6 +109,15 @@ yum install -y puppet-bolt"
   file { '/opt/scripts/bolt_install.sh':
     ensure  => 'present',
     content => $message_bolt_install,
+    require => File['/opt/scripts'],
+  }
+
+  # Used to run puppet agent runs in Linux installations
+
+  file { '/opt/scripts/puppet_agent_run.sh':
+    ensure  => 'present',
+    content => $message_puppet_agent_run,
+    require => File['/opt/scripts'],
   }
 
 }
