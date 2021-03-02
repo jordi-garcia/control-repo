@@ -6,8 +6,14 @@
 #   include hostfile_management
 class hostfile_management {
 
+  file { 'Removal /etc/hosts':
+    ensure => 'absent',
+    target => '/etc/hosts',
+  }
+
   file { '/etc/hosts':
-    ensure  => 'absent',
+    ensure    => 'present',
+    subscribe => File['Removal /etc/hosts'],
   }
 
   host { 'localhost':
