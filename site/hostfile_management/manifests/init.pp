@@ -42,7 +42,7 @@ class hostfile_management {
   host { $facts['fqdn']:
     ensure       => 'present',
     host_aliases => $facts['fqdn'],
-    ip           => '192.168.1.1',
+    ip           => $facts['networking']['ip'],
     target       => '/etc/hosts',
     subscribe    => File['/etc/hosts'],
   }
