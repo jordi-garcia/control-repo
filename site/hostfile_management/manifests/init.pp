@@ -6,8 +6,13 @@
 #   include hostfile_management
 class hostfile_management {
 
+  # Clears host file content
+
+  $str = ""
+
   file { '/etc/hosts':
-    ensure    => 'present',
+    ensure  => 'present',
+    content => $str,
   }
 
   host { 'localhost':
