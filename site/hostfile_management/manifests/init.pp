@@ -39,4 +39,12 @@ class hostfile_management {
     subscribe    => File['/etc/hosts'],
   }
 
+  host { $facts['fqdn']:
+    ensure       => 'present',
+    host_aliases => $facts['fqdn'],
+    ip           => '10.X.X.X',
+    target       => '/etc/hosts',
+    subscribe    => File['/etc/hosts'],
+  }
+
 }
