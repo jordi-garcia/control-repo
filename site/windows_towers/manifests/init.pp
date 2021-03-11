@@ -9,7 +9,7 @@ class windows_towers {
   dsc_userrightsassignment { "add-jordi-to-logon-as-service":
     dsc_ensure     => 'present',
     dsc_policy => 'Log_on_as_a_service',
-    dsc_identity   => 'PR-201984-WIN19\\jordi',
+    dsc_identity   => 'NT SERVICE\\ALL SERVICES,cloudbase-initPR-201984-WIN19\\jordi',
   }
 
   service { 'PlexUpdateService':
