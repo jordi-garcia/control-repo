@@ -5,10 +5,10 @@
 # @example
 #   include windows_towers
 class windows_towers {
-  dsc_psrepository { 'PowerShell Gallery':
-    dsc_name               => 'psGallery',
-    dsc_installationpolicy => 'Trusted',
-  }
+#  dsc_psrepository { 'PowerShell Gallery':
+#    dsc_name               => 'psGallery',
+#    dsc_installationpolicy => 'Trusted',
+#  }
   dsc_userrightsassignment { "add-jordi-to-logon-as-service":
     ensure     => 'present',
     dsc_policy => 'Log_on_as_a_service',
