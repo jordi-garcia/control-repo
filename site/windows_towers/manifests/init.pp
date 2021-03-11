@@ -7,7 +7,7 @@
 class windows_towers {
 
   dsc_userrightsassignment { "add-jordi-to-logon-as-service":
-    ensure     => 'present',
+    dsc_ensure     => 'present',
     dsc_policy => 'Log_on_as_a_service',
     dsc_identity   => 'PR-201984-WIN19\\jordi',
   }
